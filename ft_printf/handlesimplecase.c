@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handlesimplecase.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpernia- <mpernia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpernia- <mpernia-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 23:17:37 by mpernia-          #+#    #+#             */
-/*   Updated: 2020/02/22 19:11:35 by mpernia-         ###   ########.fr       */
+/*   Updated: 2020/10/01 11:36:19 by mpernia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		print_schar(t_case *format, va_list args)
 {
 	char	*aux;
 	int		len;
-	int		i;
 
 	aux = va_arg(args, char*);
 	if (aux == NULL)
@@ -55,7 +54,6 @@ int		print_schar(t_case *format, va_list args)
 	format = get_wp(format, len);
 	if (format->left_align == 0 && format->width > format->precision)
 		ft_putcharntimes(' ', format->width - format->precision);
-	i = 0;
 	write(1, aux, format->precision);
 	if (format->left_align == 1 && format->width > format->precision)
 		ft_putcharntimes(' ', format->width - format->precision);
@@ -66,7 +64,6 @@ int		print_swchar(t_case *format, va_list args)
 {
 	wchar_t *aux;
 	int		len;
-	int		i;
 
 	aux = va_arg(args, wchar_t*);
 	if (aux == NULL)
@@ -75,7 +72,6 @@ int		print_swchar(t_case *format, va_list args)
 	format = get_wp(format, len);
 	if (format->left_align == 0 && format->width > format->precision)
 		ft_putcharntimes(' ', format->width - format->precision);
-	i = 0;
 	write(1, aux, format->precision);
 	if (format->left_align == 1 && format->width > format->precision)
 		ft_putcharntimes(' ', format->width - format->precision);
